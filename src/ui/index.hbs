@@ -1,0 +1,42 @@
+<!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@{{version}}/swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@{{version}}/index.css" />
+    {{#if favicon}}
+        <link rel="icon" type="image/png" href="{{favicon}}">
+    {{else}}
+        <link rel="icon" type="image/png" href="https://unpkg.com/swagger-ui-dist@{{version}}/favicon-32x32.png" sizes="32x32" />
+        <link rel="icon" type="image/png" href="https://unpkg.com/swagger-ui-dist@{{version}}/favicon-16x16.png" sizes="16x16" />
+    {{/if}}
+</head>
+
+<body>
+<div id="swagger-ui"></div>
+<script src="https://unpkg.com/swagger-ui-dist@{{version}}/swagger-ui-bundle.js" charset="UTF-8"> </script>
+<script src="https://unpkg.com/swagger-ui-dist@{{version}}/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+<script>
+    window.onload = function() {
+        const options = {{{json swagger}}};
+        // Build a system
+        const ui = SwaggerUIBundle({
+            dom_id: '#swagger-ui',
+            deepLinking: true,
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIStandalonePreset
+            ],
+            plugins: [
+                SwaggerUIBundle.plugins.DownloadUrl
+            ],
+            layout: "StandaloneLayout",
+            ...options
+        });
+        window.ui = ui;
+    }
+</script>
+</body>
+</html>

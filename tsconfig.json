@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "esnext",
     "outFile": "./dist/index.js",
     "sourceMap": true,
     "esModuleInterop": true,

@@ -1,5 +1,6 @@
 const esbuild = require('esbuild')
 const { nodeExternalsPlugin } = require('esbuild-node-externals')
+const inlineImportPlugin = require('esbuild-plugin-inline-import');
 
 esbuild.build({
   entryPoints: ['./src/index.ts'],
@@ -9,5 +10,5 @@ esbuild.build({
   sourcemap: true,
   platform: 'node',
   target: 'node14',
-  plugins: [nodeExternalsPlugin()],
-}).catch(console.error)
+  plugins: [inlineImportPlugin(), nodeExternalsPlugin()],
+}).catch(() => process.exit(1))

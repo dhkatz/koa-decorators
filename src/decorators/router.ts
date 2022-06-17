@@ -50,7 +50,9 @@ export const head = (path: string) => method('head', path)
 
 export const params =
   (type: string, name: string) =>
-  (target: any, name: string | symbol, descriptor: PropertyDescriptor) => {}
+  (target: any, name: string | symbol, descriptor: PropertyDescriptor) => {
+    return
+  }
 
 export const middleware =
   (middleware: Middleware) =>

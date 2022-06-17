@@ -3,8 +3,8 @@ import Koa from 'koa'
 import Router from '@koa/router'
 import { string } from 'joiful'
 
-import { response, controller, description, get, method, summary } from '../src/decorators'
-import { bind } from '../src/bind'
+import { response, controller, description, get, method, summary } from '../src'
+import { bind } from '../src'
 
 class User {
   @string().required()

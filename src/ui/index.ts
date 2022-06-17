@@ -1,6 +1,6 @@
 import handlebars from 'handlebars'
-import fs from 'fs'
-import path from 'path'
+
+import templateInput from 'inline:./index.hbs'
 
 import type { SwaggerUIOptions } from 'swagger-ui'
 import type Koa from 'koa'
@@ -38,7 +38,7 @@ export function render(options: Partial<UIOptions> = {}): string {
 
   handlebars.registerHelper('json', (context) => JSON.stringify(context))
 
-  const input = fs.readFileSync(path.join(__dirname, 'index.hbs'), 'utf8')
+  const input = templateInput
 
   const template = handlebars.compile(input)
 

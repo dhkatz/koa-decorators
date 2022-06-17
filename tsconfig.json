@@ -3,7 +3,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "target": "esnext",
-    "outFile": "./dist/index.js",
+    "outDir": "./dist",
     "sourceMap": true,
     "esModuleInterop": true,
     "emitDecoratorMetadata": true,

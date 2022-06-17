@@ -1,22 +1,19 @@
 {
-  "name": "koa-decorators",
-  "version": "1.0.0",
+  "name": "@dhkatz/koa-decorators",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist/",
     "src/",
-    "test/",
-    "esbuild.config.js",
-    "tsconfig.json"
+    "test/"
   ],
   "scripts": {
     "build": "tsc --declaration --emitDeclarationOnly && node esbuild.config.js",
     "test": "jest --coverage --verbose --ci --forceExit --detectOpenHandles",
     "lint": "eslint src/**/*.ts test/**/*.ts && tsc --noEmit",
-    "prepublishOnly": "npm run lint && npm run test && npm run build",
-    "postinstall": "npm run build"
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
   },
   "publishConfig": {
     "access": "public",
@@ -43,6 +40,7 @@
     "@typescript-eslint/parser": "^5.9.0",
     "esbuild": "^0.14.45",
     "esbuild-node-externals": "^1.4.1",
+    "esbuild-plugin-inline-import": "^1.0.1",
     "eslint": "^8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -55,19 +53,23 @@
     "typescript": "^4.5.4"
   },
   "resolutions": {
-    "joi": "^17.5.0"
+    "joi": "17.5.0"
   },
   "overrides": {
-    "joi": "^17.5.0"
+    "joi": "17.5.0"
   },
   "eslintConfig": {
     "extends": [
       "plugin:@typescript-eslint/recommended",
       "plugin:prettier/recommended"
     ],
-    "ignorePatterns": ["esbuild.config.js"],
+    "ignorePatterns": [
+      "esbuild.config.js"
+    ],
     "parser": "@typescript-eslint/parser",
-    "rules": {}
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "off"
+    }
   },
   "prettier": {
     "semi": false,

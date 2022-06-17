@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import Koa from 'koa'
 import Router from '@koa/router'
 import bodyParser from 'koa-bodyparser'
@@ -5,9 +6,9 @@ import bodyParser from 'koa-bodyparser'
 import { Server } from 'http'
 import { agent, SuperAgentTest } from 'supertest'
 
-import { joi, method } from '../../src/decorators'
+import { joi, method } from '../../src'
 import { User } from '../models/User'
-import { METADATA_KEY } from '../../src/constants'
+import { METADATA_KEY } from '../../src'
 
 describe('@joi decorator', () => {
   let app: Koa
